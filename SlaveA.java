@@ -1,0 +1,1 @@
+//ServerSocket to receive jobs from master. Master is also a server socket? how do I connect them?
