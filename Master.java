@@ -1,5 +1,6 @@
+import java.net.*;
+import java.io.*;
 
-import java.util.*;
 public class Master {
 public static void main(String[] args) throws IOException {
 
@@ -15,29 +16,28 @@ public static void main(String[] args) throws IOException {
     int portNumber = Integer.parseInt(args[0]);
 
     try (ServerSocket masterSocket = new ServerSocket(portNumber);//Server Socket: to accept calls from client
-         Socket clientSocketA = masterSocket.accept();//to send jobs to salve A
-         PrintWriter out1 =
+         Socket clientSocketA = masterSocket.accept();//to receive jobs from client
+         PrintWriter clientOut =
                  new PrintWriter(clientSocketA.getOutputStream(), true);
-         BufferedReader in1 =
+         BufferedReader clientIn =
                  new BufferedReader(new InputStreamReader(clientSocketA.getInputStream()));
-         Socket clientSocketB = masterSocket.accept();//to jobs calls to slave B
-         PrintWriter out2 =
-                 new PrintWriter(clientSocketB.getOutputStream(), true);
-         BufferedReader in2 =
-                 new BufferedReader(new InputStreamReader(clientSocketB.getInputStream()));) {
-        String inputLine1, inputLine2;
+         Socket slaveA = new Socket("127.0.0.1", 3777);//switch to variables(args)
+         PrintWriter out =
+                 new PrintWriter(slaveA.getOutputStream(), true);
+         BufferedReader in =
+                 new BufferedReader(
+                         new InputStreamReader(slaveA.getInputStream()));
+         //soket for slave b & switch to variables(args)
+    ){
         String response;
-        while ((inputLine1 = in1.readLine()) != null) {
+        String inputLine1;
+        while ((inputLine1 = clientIn.readLine()) != null) {
             System.out.println("Received from client: " + inputLine1);
             response = "*** ECHO SERVER MSG *** " + inputLine1;
             System.out.println("Sending back: " + response);
-            out1.println(response);
+            clientOut.println(response);
 
-            inputLine2 = in2.readLine();
-            System.out.println("Received from client: " + inputLine2);
-            response = "*** ECHO SERVER MSG *** " + inputLine2;
-            System.out.println("Sending back: " + response);
-            out2.println(response);
+
         }
     } catch (IOException e) {
         System.out.println(
@@ -51,5 +51,4 @@ public static void main(String[] args) throws IOException {
  from slave send to client
  ThreadfromSlaveB: pass the inB object and outclient object when receive done
  message from slave send to client**/
-}
 }
