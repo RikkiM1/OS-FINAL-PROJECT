@@ -30,9 +30,14 @@ public class Client {
         ) {
             out.println("request to master");//fill it in
 
+            String jobType;
+
             if (rand.nextInt(2)<1) {//choosing jobs at random to send to master
-            //fill in code
+            jobType = "A";
+            } else {
+                jobType = "B";
             }
+            out.println(jobType);
             //implement:
             // ThreadfromMaster: gets message when job is complete; and out outs it
             //ThreadtoMaster: ?? main

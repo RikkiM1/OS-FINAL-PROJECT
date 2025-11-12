@@ -1,7 +1,7 @@
 public class ArrayListA {
     String jobID;
     String jobType;
-    String jobs[];
+    String[] jobs;
     //add third field client name?
     //make this a shared object
 
@@ -14,7 +14,7 @@ public class ArrayListA {
     }
 
     public void setJobs(String jobID,  String jobType) {
-        this.jobs = {jobID, jobType};//is this the right way to do it?
+        this.jobs = new String[]{jobID, jobType};//is this the right way to do it?
     }
 
     public String getJobID() {
