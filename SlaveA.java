@@ -23,4 +23,10 @@ public class SlaveA {
         }
 
     }
+    //rikki mann- I added the catch statement 11/12
+     catch (IOException e) {
+        System.out.println(
+                "Exception caught when trying to listen on port " + portNumber + " or listening for a connection");
+        System.out.println(e.getMessage());
+    }
 }
