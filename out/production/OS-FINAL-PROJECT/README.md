@@ -17,23 +17,23 @@ also it'll be reusable for all slaves.
 ___
 * Set up Slave B the class and in main
 * Figure out loop for master to connect to multiple clients
-* Create JobList Object in all classes (not client)
+* How to share objects accross classes
 * Start creating thread classes
 * Set up threads in client, in to master set up loop requesting multiple jobs
-* Set up the logic to dynamically set the job id counter in client append to client ID which will be passes by master
+* set up the logic to dynamically set the job id (discuss Nov. 12 on zoom)
 * 
 ### Write weekly progress reports here.
 ___
 <u> Nov. 12 - 19</u>
 
-* Rebecca G:
+* Rikki G:
 * Rikki M:
 * Elisheva G:
 * As a group:
 
 <u> Nov. 19 - 26</u>
 
-* Rebecca G:
+* Rikki G:
 * Rikki M:
 * Elisheva G:
 * As a group:

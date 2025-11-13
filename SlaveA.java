@@ -13,9 +13,9 @@ public class SlaveA {
 
         try (ServerSocket slaveASocket = new ServerSocket(portNumber);//Server Socket: to accept call from master
              Socket masterToA = slaveASocket.accept();
-             PrintWriter out1 =
+             PrintWriter out =
                      new PrintWriter(masterToA.getOutputStream(), true);
-             BufferedReader in1 =
+             BufferedReader in =
                      new BufferedReader(new InputStreamReader(masterToA.getInputStream()));
         )
         {

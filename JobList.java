@@ -6,6 +6,7 @@ public class JobList {
 
     public JobList(String idealJobType) {
         this.idealJobType = idealJobType;
+        this.jobs = new ArrayList<>();
     }
 
     public void addJob(String[] job) {
@@ -28,9 +29,9 @@ public class JobList {
         int time = 0;
         for(String[] job : this.jobs) {
             if(job[1].equals(this.idealJobType)) {
-                time += 3;
+                time += 2;
             } else {
-                time += 7;
+                time += 10;
             }
         }
         return time;
