@@ -1,7 +1,7 @@
 //ServerSocket to receive jobs from master
 import java.net.*;
 import java.io.*;
-
+//Each slave needs one job list for each thread
 //Rikki Mann- I added the slaveB class 11/12
 public class SlaveB {
     public static void main(String[] args) throws IOException {
@@ -23,7 +23,6 @@ public class SlaveB {
         {
 
         }
-
     }
     //rikki mann- I added the catch statement 11/12
     catch (IOException e) {

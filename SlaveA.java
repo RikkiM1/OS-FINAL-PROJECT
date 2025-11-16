@@ -1,6 +1,6 @@
 import java.net.*;
 import java.io.*;
-
+//Each slave needs one jobList for each thread
 public class SlaveA {
     public static void main(String[] args) throws IOException {
 
@@ -17,9 +17,8 @@ public class SlaveA {
                      new PrintWriter(masterToA.getOutputStream(), true);
              BufferedReader in =
                      new BufferedReader(new InputStreamReader(masterToA.getInputStream()));
-        )
+             )
         {
-
         }
 
     }

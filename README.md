@@ -26,7 +26,7 @@ ___
 ___
 <u> Nov. 12 - 19</u>
 
-* Rebecca G:
+* Rebecca G: Created SlaveB socket in Master, added some code & comments in master and client. 
 * Rikki M:  added the catch statements to SlaveA and SlaveB classes, also I created the SlaveB class 11/12
 * Elisheva G:
 * As a group:

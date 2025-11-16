@@ -26,6 +26,13 @@ public static void main(String[] args) throws IOException {
                  new BufferedReader(
                          new InputStreamReader(slaveAsocket.getInputStream()));
          //socket for slave b & switch to variables(args)
+         Socket slaveBsocket = new Socket("127.0.0.1", 3897);//switch to variables(args)
+         PrintWriter slaveBOut =
+                 new PrintWriter(slaveBsocket.getOutputStream(), true);
+         BufferedReader slaveBIn =
+                 new BufferedReader(
+                         new InputStreamReader(slaveBsocket.getInputStream()));
+
     ){
 
         String response;
@@ -35,6 +42,13 @@ public static void main(String[] args) throws IOException {
 //            response = "*** ECHO SERVER MSG *** " + inputLine1;
 //            System.out.println("Sending back: " + response);
 //            clientOut.println(response);
+
+        //- Master needs two Joblist objects for each slave:
+        JobList jobs1SlaveA = new JobList();
+        JobList jobs2SlaveA = new JobList();
+        JobList jobs1SlaveB = new JobList();
+        JobList jobs2SlaveB = new JobList();
+        //add params when we get to that part of coding
 //        }
     } catch (IOException e) {
         System.out.println(
