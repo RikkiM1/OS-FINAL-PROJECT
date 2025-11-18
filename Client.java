@@ -8,11 +8,6 @@ public class Client {
 
         args = new String[] {"127.0.0.1", "51222"};
         Random rand = new Random();
-        if (args.length != 2) {
-            System.err.println(
-                    "Usage: java Client local host 51222");
-            System.exit(1);
-        }
 
         String hostName = args[0];
         int portNumber = Integer.parseInt(args[1]);
@@ -28,16 +23,10 @@ public class Client {
                         new BufferedReader(
                                 new InputStreamReader(System.in))
         ) {
-            out.println("request to master");//fill it in
+            out.println("Client would like to request jobs.");
+            String ClientID = in.readLine();
 
-            String jobType;
 
-            if (rand.nextInt(2)<1) {//choosing jobs at random to send to master
-            jobType = "A";
-            } else {
-                jobType = "B";
-            }
-            out.println(jobType);
             //implement:
             // ThreadfromMaster: gets message when job is complete; and out outs it
             //ThreadtoMaster: ?? main

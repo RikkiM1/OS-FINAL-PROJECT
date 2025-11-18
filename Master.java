@@ -44,12 +44,10 @@ public static void main(String[] args) throws IOException {
 //            clientOut.println(response);
 
         //- Master needs two Joblist objects for each slave:
-        JobList jobs1SlaveA = new JobList();
-        JobList jobs2SlaveA = new JobList();
-        JobList jobs1SlaveB = new JobList();
-        JobList jobs2SlaveB = new JobList();
+        JobList jobsSlaveA = new JobList("A");
+        JobList jobsSlaveB = new JobList("B");
         //add params when we get to that part of coding
-//        }
+//
     } catch (IOException e) {
         System.out.println(
                 "Exception caught when trying to listen on port " + portNumber + " or listening for a connection");
