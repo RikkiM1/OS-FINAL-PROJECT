@@ -19,5 +19,6 @@ public class ClientsToMaster extends Thread {
             String jobID = clientID + i;
             out.println(jobID + "," + jobType);
         }
+        out.println("Done");
     }
 }
