@@ -11,14 +11,26 @@ ___
 
 * Elisheva Goldfarb: I think the job list class will work better than ArrayListA, 
 also it'll be reusable for all slaves.
-* 
+
+* Created the BooleanWrapper and thread M->S, C->M
 
 ### Write what should be worked on next on here.
 ___
-* Set up Slave B the class and in main
-* Figure out loop for master to connect to multiple clients
-* Create JobList Object in all classes (not client)
-* Start creating thread classes
+- [x] Set up Slave B the class and in main
+- [ ] Figure out loop for master to connect to multiple clients 
+- [ ] Create JobList Object in all classes (not client)
+- [ ] Start creating thread classes
+  - [ ] Slave Threads
+    - [x] From Master
+    - [ ] To Master (currently set up in main of slave A should be moved)
+  - [ ] Client Threads
+    - [x] To Master
+    - [ ] From Master (Maybe do in main?)
+  - [ ] Master Threads
+    - [ ] To Client
+    - [ ] From Client
+    - [ ] To Slave
+    - [ ] From Slave
 * Set up threads in client, in to master set up loop requesting multiple jobs
 * Set up the logic to dynamically set the job id counter in client append to client ID which will be passes by master
 * 
