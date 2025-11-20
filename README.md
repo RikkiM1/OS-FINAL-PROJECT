@@ -23,14 +23,16 @@ ___
   - [ ] Slave Threads
     - [x] From Master
     - [ ] To Master (currently set up in main of slave A should be moved)
+      - Fields: 
+        - PrintWriter
+        - JobList
+        - BooleanWrapper
   - [ ] Client Threads
     - [x] To Master
     - [ ] From Master (Maybe do in main?)
   - [ ] Master Threads
-    - [ ] To Client
-    - [ ] From Client
-    - [ ] To Slave
-    - [ ] From Slave
+    - [ ] From Slave/To Client
+    - [ ] From Client/To Slave
 - [x] Set up the logic to dynamically set the job id counter in client
 - [ ] Check the current thread syntax make sure it is correct 
 
