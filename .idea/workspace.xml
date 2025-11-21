@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="be88416f-452f-4ca4-95c2-78e1e85531f4" name="Changes" comment="Started working!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Master.java" beforeDir="false" afterPath="$PROJECT_DIR$/Master.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SlaveA.java" beforeDir="false" afterPath="$PROJECT_DIR$/SlaveA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SlaveB.java" beforeDir="false" afterPath="$PROJECT_DIR$/SlaveB.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +43,19 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="OS-FINAL-PROJECT" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="OS-FINAL-PROJECT" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -67,6 +75,9 @@
       <workItem from="1763006173770" duration="113000" />
       <workItem from="1763006351271" duration="31000" />
       <workItem from="1763006407121" duration="244000" />
+      <workItem from="1763691529892" duration="68000" />
+      <workItem from="1763692309616" duration="670000" />
+      <workItem from="1763697562162" duration="1176000" />
     </task>
     <servers />
   </component>
