@@ -1,6 +1,8 @@
 //ServerSocket to receive jobs from master
+
 import java.net.*;
 import java.io.*;
+
 //Each slave needs one job list for each thread
 //Rikki Mann- I added the slaveB class 11/12
 public class SlaveB {
@@ -16,7 +18,22 @@ public class SlaveB {
              BufferedReader in =
                      new BufferedReader(new InputStreamReader(masterToB.getInputStream()));
         ) {
+            BooleanWrapper done = new BooleanWrapper(false);
             JobList jobs = new JobList("B");
+
+            Thread fromMaster = new SlavesFromMaster(jobs, in, done);
+            fromMaster.start();
+            while (!done.getBool() || jobs.getJobCount() > 0) {
+                if (jobs.getJobCount() > 0) {
+                    String[] job = jobs.getFirstJob();
+                    if (job[1].equals("B")) {
+                        sleep(2000);
+                    } else {
+                        sleep(10000);
+                    }
+                    out.println(job[0] + " is complete");
+                }
+            }
         }
         //rikki mann- I added the catch statement 11/12
         catch (IOException e) {

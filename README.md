@@ -48,6 +48,7 @@ ___
 <u> Nov. 19 - 26</u>
 
 * Rebecca G:
-* Rikki M:
+* Rikki M:I added the while loop for the thread from Slave A to Slave B, 
+also in ClientToMaster i changed the input from random to user input.
 * Elisheva G:
 * As a group:
