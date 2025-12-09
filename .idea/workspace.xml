@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be88416f-452f-4ca4-95c2-78e1e85531f4" name="Changes" comment="">
+    <list default="true" id="be88416f-452f-4ca4-95c2-78e1e85531f4" name="Changes" comment="Started working!">
+      <change afterPath="$PROJECT_DIR$/MasterFromSlave.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MastersToSlave.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientsToMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClientsToMaster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SlaveA.java" beforeDir="false" afterPath="$PROJECT_DIR$/SlaveA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Master.java" beforeDir="false" afterPath="$PROJECT_DIR$/Master.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SlaveB.java" beforeDir="false" afterPath="$PROJECT_DIR$/SlaveB.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,9 +18,28 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;egoldfar&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/RikkiM1/OS-FINAL-PROJECT.git&quot;,
+    &quot;accountId&quot;: &quot;886df035-4cd7-4e22-bd5a-bd5a15010544&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -34,6 +55,7 @@
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/rikki/OneDrive/Documents/GitHub/OS-FINAL-PROJECT&quot;,
@@ -66,7 +88,10 @@
       <workItem from="1763006173770" duration="113000" />
       <workItem from="1763006351271" duration="31000" />
       <workItem from="1763006407121" duration="244000" />
-      <workItem from="1763411522166" duration="17000" />
+      <workItem from="1763416358101" duration="5208000" />
+      <workItem from="1763498111741" duration="6719000" />
+      <workItem from="1763607093079" duration="2357000" />
+      <workItem from="1764561143989" duration="11232000" />
     </task>
     <servers />
   </component>

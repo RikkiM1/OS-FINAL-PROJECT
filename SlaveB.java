@@ -3,6 +3,8 @@
 import java.net.*;
 import java.io.*;
 
+import static java.lang.Thread.sleep;
+
 //Each slave needs one job list for each thread
 //Rikki Mann- I added the slaveB class 11/12
 public class SlaveB {
@@ -40,6 +42,8 @@ public class SlaveB {
             System.out.println(
                     "Exception caught when trying to listen on port " + portNumber + " or listening for a connection");
             System.out.println(e.getMessage());
+        } catch (InterruptedException e) {
+            System.out.println("Thread was interrupted");
         }
     }
 }

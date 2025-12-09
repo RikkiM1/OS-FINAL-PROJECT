@@ -25,6 +25,8 @@ public class Client {
         ) {
             out.println("Client would like to request jobs.");
             String ClientID = in.readLine();
+            Thread toMaster = new ClientsToMaster(out, ClientID);
+            toMaster.start();
 
 
             //implement:

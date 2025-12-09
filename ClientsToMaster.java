@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class ClientsToMaster extends Thread {
     private PrintWriter out;
     private String clientID;
-    private int jobs;
     Scanner kybd = new Scanner(System.in);
 
-    public ClientsToMaster(PrintWriter out) {
+    public ClientsToMaster(PrintWriter out, String clientID) {
         this.out = out;
+        this.clientID = clientID;
     }
 
     @Override
@@ -18,12 +18,10 @@ public class ClientsToMaster extends Thread {
         //int jobs = rand.nextInt(100) + 1;
 
         System.out.println("How many jobs? \nenter 0 to end");
-        jobs = kybd.nextLine();
+        int jobs = kybd.nextInt();
         kybd.nextLine();
         for (int i = 0; i < jobs; i++) {
-            //String jobType = rand.nextInt(2) <1 ? "A":"B" ;
-            //are we supposed to ask them to pick A or B?
-            System.out.println("chose: 'A' or 'B'");
+            System.out.println("Choose: 'A' or 'B' - ");
             String jobType = kybd.nextLine();
             jobType = jobType.toUpperCase();
             String jobID = clientID + i;
