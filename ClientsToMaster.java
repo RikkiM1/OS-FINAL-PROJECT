@@ -14,8 +14,6 @@ public class ClientsToMaster extends Thread {
 
     @Override
     public void run() {
-        // Random rand = new Random();
-        //int jobs = rand.nextInt(100) + 1;
 
         System.out.println("How many jobs? \nenter 0 to end");
         int jobs = kybd.nextInt();

@@ -5,7 +5,7 @@ import java.util.concurrent.CompletableFuture;
 public class Master {
 public static void main(String[] args) throws IOException {
 
-    args = new String[] { "51222" };
+    args = new String[] { "61222" };
     //implement:
     //ThreadfromClient://forEach
     //ThreadToClient://forEach
@@ -14,14 +14,14 @@ public static void main(String[] args) throws IOException {
 
 
     try (ServerSocket masterSocket = new ServerSocket(portNumber);//Server Socket: to accept calls from client
-         Socket slaveAsocket = new Socket("127.0.0.1", 3777);//switch to variables(args)
+         Socket slaveAsocket = new Socket("127.0.0.1", 6777);//switch to variables(args)
          PrintWriter slaveAOut =
                  new PrintWriter(slaveAsocket.getOutputStream(), true);
          BufferedReader slaveAIn =
                  new BufferedReader(
                          new InputStreamReader(slaveAsocket.getInputStream()));
          //socket for slave b & switch to variables(args)
-         Socket slaveBsocket = new Socket("127.0.0.1", 3897);//switch to variables(args)
+         Socket slaveBsocket = new Socket("127.0.0.1", 6897);//switch to variables(args)
          PrintWriter slaveBOut =
                  new PrintWriter(slaveBsocket.getOutputStream(), true);
          BufferedReader slaveBIn =
@@ -34,8 +34,9 @@ public static void main(String[] args) throws IOException {
         //- Master needs two Joblist objects for each slave:
         JobList jobsSlaveA = new JobList("A");
         JobList jobsSlaveB = new JobList("B");
-        //add params when we get to that part of coding
+        //add jobs to joblist? is it only in mastertoslave?
 
+        //this loop gets jobs from the client and then sends them to the slaves
         for (int i = 0; i < 2; i++) {
             Socket clientSocket = masterSocket.accept();//to receive jobs from client
             PrintWriter clientOut =
@@ -43,7 +44,6 @@ public static void main(String[] args) throws IOException {
             BufferedReader clientIn =
                     new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             clientSlaveConnections[i] = new MastersToSlave(clientIn, jobsSlaveA, jobsSlaveB, slaveAOut, slaveBOut);
-            
         }
 
         slaveAOut.println("Done!");

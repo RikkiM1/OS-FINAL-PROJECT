@@ -37,7 +37,7 @@ public class MastersToSlave extends Thread {
                         b.addJob(job);
                         slaveb.println(line);
                     }
-                } else {
+                } else {//this sends jobs to non-optimal slave if that makes the most sense
                     if (bTime <= aTime + 8) {
                         b.addJob(job);
                         slaveb.println(line);

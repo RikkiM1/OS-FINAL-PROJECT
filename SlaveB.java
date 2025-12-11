@@ -10,7 +10,7 @@ import static java.lang.Thread.sleep;
 public class SlaveB {
     public static void main(String[] args) throws IOException {
 
-        args = new String[]{"3897"};
+        args = new String[]{"6897"};
         int portNumber = Integer.parseInt(args[0]);
 
         try (ServerSocket slaveBSocket = new ServerSocket(portNumber);//Server Socket: to accept call from master

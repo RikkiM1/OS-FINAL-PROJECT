@@ -4,7 +4,7 @@ import java.net.*;
 public class Client2 {
     public static void main(String[] args) throws IOException {
 
-        args = new String[] {"127.0.0.1", "51229"};//only have this port number here
+        args = new String[] {"127.0.0.1", "61229"};//only have this port number here
 
 
         String hostName = args[0];

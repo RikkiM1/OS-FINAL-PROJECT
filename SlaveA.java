@@ -7,7 +7,7 @@ import static java.lang.Thread.sleep;
 public class SlaveA {
     public static void main(String[] args)  throws IOException {
 
-        args = new String[]{"3777"};
+        args = new String[]{"6777"};
 
         int portNumber = Integer.parseInt(args[0]);
 
