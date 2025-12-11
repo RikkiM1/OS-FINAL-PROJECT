@@ -19,6 +19,7 @@ public class MastersToSlave extends Thread {
     }
 
     public void run() {
+        System.out.println("MastersToSlave thread started.");
         boolean done = false;
         while (!done) {
             try {

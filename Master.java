@@ -37,12 +37,17 @@ public static void main(String[] args) throws IOException {
         //add jobs to joblist? is it only in mastertoslave?
 
         //this loop gets jobs from the client and then sends them to the slaves
+        char clientID ='A';
         for (int i = 0; i < 2; i++) {
             Socket clientSocket = masterSocket.accept();//to receive jobs from client
             PrintWriter clientOut =
                     new PrintWriter(clientSocket.getOutputStream(), true);
             BufferedReader clientIn =
                     new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            clientOut.println(clientID);
+            System.out.println("Assigned Client ID: " + clientID);
+            clientID++;
+        
             clientSlaveConnections[i] = new MastersToSlave(clientIn, jobsSlaveA, jobsSlaveB, slaveAOut, slaveBOut);
         }
 

@@ -1,5 +1,4 @@
 import java.io.PrintWriter;
-import java.util.Random;
 import java.util.Scanner;
 
 public class ClientsToMaster extends Thread {
