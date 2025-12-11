@@ -14,11 +14,6 @@ public static void main(String[] args) throws IOException {
 
 
     try (ServerSocket masterSocket = new ServerSocket(portNumber);//Server Socket: to accept calls from client
-         Socket clientSocketA = masterSocket.accept();//to receive jobs from client
-         PrintWriter clientOut =
-                 new PrintWriter(clientSocketA.getOutputStream(), true);
-         BufferedReader clientIn =
-                 new BufferedReader(new InputStreamReader(clientSocketA.getInputStream()));
          Socket slaveAsocket = new Socket("127.0.0.1", 3777);//switch to variables(args)
          PrintWriter slaveAOut =
                  new PrintWriter(slaveAsocket.getOutputStream(), true);
@@ -34,19 +29,25 @@ public static void main(String[] args) throws IOException {
                          new InputStreamReader(slaveBsocket.getInputStream()));
 
     ){
-
-        String response;
-        String inputLine1;
-//        while ((inputLine1 = clientIn.readLine()) != null) {
-//            System.out.println("Received from client: " + inputLine1);
-//            response = "*** ECHO SERVER MSG *** " + inputLine1;
-//            System.out.println("Sending back: " + response);
-//            clientOut.println(response);
+        Thread[] clientSlaveConnections  = new Thread[2];
 
         //- Master needs two Joblist objects for each slave:
         JobList jobsSlaveA = new JobList("A");
         JobList jobsSlaveB = new JobList("B");
         //add params when we get to that part of coding
+
+        for (int i = 0; i < 2; i++) {
+            Socket clientSocket = masterSocket.accept();//to receive jobs from client
+            PrintWriter clientOut =
+                    new PrintWriter(clientSocket.getOutputStream(), true);
+            BufferedReader clientIn =
+                    new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            clientSlaveConnections[i] = new MastersToSlave(clientIn, jobsSlaveA, jobsSlaveB, slaveAOut, slaveBOut);
+            
+        }
+
+        slaveAOut.println("Done!");
+        slaveBOut.println("Done!");
 //
     } catch (IOException e) {
         System.out.println(
