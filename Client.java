@@ -6,7 +6,7 @@ import java.util.*;
 public class Client {
     public static void main(String[] args) throws IOException {
 
-        args = new String[] {"127.0.0.1", "51222"};
+        args = new String[] {"127.0.0.1", "61222"};
 
         String hostName = args[0];
         int portNumber = Integer.parseInt(args[1]);
@@ -22,8 +22,9 @@ public class Client {
                         new BufferedReader(
                                 new InputStreamReader(System.in))
         ) {
-            out.println("Client would like to request jobs.");
-            String ClientID = in.readLine();
+            System.out.println("Client would like to request jobs.");
+            out.println("Client would like to request jobs.");//is this going to master?
+            String ClientID = in.readLine();//who is sending in the ID?
             Thread toMaster = new ClientsToMaster(out, ClientID);
             toMaster.start();
 

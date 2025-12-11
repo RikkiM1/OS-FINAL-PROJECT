@@ -19,6 +19,7 @@ public class MastersToSlave extends Thread {
     }
 
     public void run() {
+        System.out.println("MastersToSlave thread started.");
         boolean done = false;
         while (!done) {
             try {
@@ -37,7 +38,7 @@ public class MastersToSlave extends Thread {
                         b.addJob(job);
                         slaveb.println(line);
                     }
-                } else {
+                } else {//this sends jobs to non-optimal slave if that makes the most sense
                     if (bTime <= aTime + 8) {
                         b.addJob(job);
                         slaveb.println(line);

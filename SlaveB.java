@@ -10,7 +10,7 @@ import static java.lang.Thread.sleep;
 public class SlaveB {
     public static void main(String[] args) throws IOException {
 
-        args = new String[]{"3897"};
+        args = new String[]{"6897"};
         int portNumber = Integer.parseInt(args[0]);
 
         try (ServerSocket slaveBSocket = new ServerSocket(portNumber);//Server Socket: to accept call from master
@@ -25,7 +25,7 @@ public class SlaveB {
 
             Thread fromMaster = new SlavesFromMaster(jobs, in, done);
             fromMaster.start();
-            System.out.println("Slave A received job from master");
+            System.out.println("Slave B received job from master");
             while (!done.getBool() || jobs.getJobCount() > 0) {
                 if (jobs.getJobCount() > 0) {
                     String[] job = jobs.getFirstJob();
