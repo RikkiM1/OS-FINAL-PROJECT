@@ -25,6 +25,7 @@ public class SlaveB {
 
             Thread fromMaster = new SlavesFromMaster(jobs, in, done);
             fromMaster.start();
+            System.out.println("Slave A received job from master");
             while (!done.getBool() || jobs.getJobCount() > 0) {
                 if (jobs.getJobCount() > 0) {
                     String[] job = jobs.getFirstJob();
@@ -33,6 +34,7 @@ public class SlaveB {
                     } else {
                         sleep(10000);
                     }
+                    System.out.println(job[0] + " is complete in Slave B");
                     out.println(job[0] + " is complete");
                 }
             }

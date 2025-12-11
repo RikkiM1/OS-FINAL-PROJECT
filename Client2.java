@@ -1,12 +1,11 @@
-
 import java.io.*;
 import java.net.*;
-import java.util.*;
-
-public class Client {
+//add print statements(can be same as client 1)
+public class Client2 {
     public static void main(String[] args) throws IOException {
 
-        args = new String[] {"127.0.0.1", "51222"};
+        args = new String[] {"127.0.0.1", "51229"};//only have this port number here
+
 
         String hostName = args[0];
         int portNumber = Integer.parseInt(args[1]);
@@ -24,12 +23,10 @@ public class Client {
         ) {
             out.println("Client would like to request jobs.");
             String ClientID = in.readLine();
+            System.out.println("Client received job from user with ID: " + ClientID);
             Thread toMaster = new ClientsToMaster(out, ClientID);
             toMaster.start();
-
-            //Client is supposed to inform user that job is complete. Add code that tells client when its done then
-            // add print statement: system.out.println("Job is complete.");
-
+            System.out.println("CLient sent job to master.");
 
             //implement:
             // ThreadfromMaster: gets message when job is complete; and out outs it

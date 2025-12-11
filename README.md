@@ -52,3 +52,9 @@ ___
 also in ClientToMaster i changed the input from random to user input.
 * Elisheva G:
 * As a group:
+
+Dec 10 progress report:
+* Rebecca G: I added a Client2 class, Started addding print statements to show what's happening. 
+* Rikki M:
+* Elisheva G:
+* As a group:
