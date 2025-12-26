@@ -20,6 +20,7 @@ public class SlaveB {
              BufferedReader in =
                      new BufferedReader(new InputStreamReader(masterToB.getInputStream()));
         ) {
+            System.out.println("Slave B is ready to receive jobs from Master.");
             BooleanWrapper done = new BooleanWrapper(false);
             JobList jobs = new JobList("B");
 
@@ -36,10 +37,12 @@ public class SlaveB {
                         System.out.println("Sleeping for 1000 seconds for type B job.")
                         sleep(10000);
                     }
+                    jobs.removeFirstJob();
                     System.out.println(job[0] + " is complete in Slave B");
                     out.println(job[0] + " is complete");
                 }
             }
+            fromMaster.join();
         }
         //rikki mann- I added the catch statement 11/12
         catch (IOException e) {

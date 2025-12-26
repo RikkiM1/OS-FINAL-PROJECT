@@ -29,6 +29,7 @@ public static void main(String[] args) throws IOException {
                          new InputStreamReader(slaveBsocket.getInputStream()));
 
     ){
+        System.out.println("Master has connected to slaves.");
         Thread[] clientSlaveConnections  = new Thread[2];
 
         //- Master needs two Joblist objects for each slave:
@@ -50,7 +51,16 @@ public static void main(String[] args) throws IOException {
         
             clientSlaveConnections[i] = new MastersToSlave(clientIn, jobsSlaveA, jobsSlaveB, slaveAOut, slaveBOut);
         }
-
+        for (Thread t : clientSlaveConnections) {
+            t.start();
+        }
+        for (Thread t : clientSlaveConnections) {
+            try {
+                t.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         slaveAOut.println("Done!");
         slaveBOut.println("Done!");
 //

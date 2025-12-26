@@ -15,6 +15,7 @@ public class SlavesFromMaster extends Thread {
 
     @Override
     public void run() {
+        System.out.println("SlavesFromMaster thread started.");
         String[] job;
         while(!done.getBool()) {
             try {
@@ -24,9 +25,10 @@ public class SlavesFromMaster extends Thread {
                 } else {
                     job = line.split(",");
                     jobs.addJob(job);
+                    System.out.println("Job added to slave: " + line);
                 }
             } catch (IOException e) {
-
+                e.printStackTrace();
             }
 
         }

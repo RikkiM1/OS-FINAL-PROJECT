@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.Socket;
 
 public class MastersToSlave extends Thread {
     BufferedReader in;
@@ -20,6 +19,11 @@ public class MastersToSlave extends Thread {
 
     public void run() {
         System.out.println("MastersToSlave thread started.");
+        try {
+             in.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         boolean done = false;
         while (!done) {
             try {
@@ -37,13 +41,13 @@ public class MastersToSlave extends Thread {
                         slavea.println(line);
                     } else {
                         b.addJob(job);
-                        System.out.println("Slave A received job from master");
+                        System.out.println("Slave B received job from master");
                         slaveb.println(line);
                     }
                 } else {//this sends jobs to non-optimal slave if that makes the most sense
                     if (bTime <= aTime + 8) {
                         b.addJob(job);
-                        System.out.println("Slave A received job from master");
+                        System.out.println("Slave B received job from master");
                         slaveb.println(line);
                     } else {
                         a.addJob(job);
@@ -54,6 +58,7 @@ public class MastersToSlave extends Thread {
                 }
             } catch (IOException e) {
                 System.out.println(e.getMessage());
+                e.printStackTrace();
             }
 
         }
