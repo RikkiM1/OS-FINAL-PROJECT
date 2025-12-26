@@ -10,7 +10,7 @@ public class Client {
 
         String hostName = args[0];
         int portNumber = Integer.parseInt(args[1]);
-        int ctr =0;//Gets incremented when you pass it ToMaster thread in client.
+
         try (
                 Socket clientSocket = new Socket(hostName, portNumber);
                 PrintWriter out =
@@ -23,18 +23,21 @@ public class Client {
                                 new InputStreamReader(System.in))
         ) {
             System.out.println("Client would like to request jobs.");
-            out.println("Client would like to request jobs.");//is this going to master?
-            String ClientID = in.readLine();//who is sending in the ID?
-            Thread toMaster = new ClientsToMaster(out, ClientID);
-            toMaster.start();
+            out.println("Client would like to request jobs.");//is this going to master? Also isn't the client the one
+                // that sends jobs?
+            // do we need to put this in a while loop? like while(in.readline!=null)?
+                String ClientID = stdIn.readLine();//who is sending in the ID? I switched it from in to stdIn
+            // and now no error but not sure if supposed to do that
+                Thread toMaster = new ClientsToMaster(out, ClientID);
+                toMaster.start();//why isn't this thread starting? Not being asked for job input
+
+
 
             //Client is supposed to inform user that job is complete. Add code that tells client when its done then
             // add print statement: system.out.println("Job is complete.");
 
 
-            //implement:
-            // ThreadfromMaster: gets message when job is complete; and out outs it
-            //ThreadtoMaster: ?? main
+
 
         } catch (UnknownHostException e) {
             System.err.println("Don't know about host " + hostName);

@@ -33,17 +33,21 @@ public class MastersToSlave extends Thread {
                 if (job[1].equals("A")) {
                     if (aTime <= bTime + 8) {
                         a.addJob(job);
+                        System.out.println("Slave A received job from master");
                         slavea.println(line);
                     } else {
                         b.addJob(job);
+                        System.out.println("Slave A received job from master");
                         slaveb.println(line);
                     }
                 } else {//this sends jobs to non-optimal slave if that makes the most sense
                     if (bTime <= aTime + 8) {
                         b.addJob(job);
+                        System.out.println("Slave A received job from master");
                         slaveb.println(line);
                     } else {
                         a.addJob(job);
+                        System.out.println("Slave A received job from master");
                         slavea.println(line);
                     }
                 }

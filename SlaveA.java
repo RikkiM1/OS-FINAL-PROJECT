@@ -21,8 +21,7 @@ public class SlaveA {
             BooleanWrapper done = new BooleanWrapper(false);
             JobList jobs = new JobList("A");
             Thread fromMaster = new SlavesFromMaster(jobs, in, done);
-            System.out.println("Slave A received job from master");//is this in the right spot? or does it go further down-
-            // I put it after next line in Slave B
+
             fromMaster.start();
             while (!done.getBool() || jobs.getJobCount() > 0) {
                 if (jobs.getJobCount() > 0) {
