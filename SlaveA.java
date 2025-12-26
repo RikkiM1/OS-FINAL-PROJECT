@@ -28,10 +28,10 @@ public class SlaveA {
                 if (jobs.getJobCount() > 0) {
                     String[] job = jobs.getFirstJob();
                     if (job[1].equals("A")) {
-                        System.out.println("Sleeping for 2000 seconds for type A job.")
+                        System.out.println("Sleeping for 2 seconds for type A job.")
                         sleep(2000);
                     } else {
-                        System.out.println("Sleeping for 1000 seconds for type A job.")
+                        System.out.println("Sleeping for 10 seconds for type B job.")
                         sleep(10000);
                     }
                     jobs.removeFirstJob();
