@@ -28,7 +28,7 @@ public class JobsToSlave extends Thread {
         while (!done) {
             try {
                 String line = in.readLine();
-                if (line.equals("Done!")) {
+                if (line.equals("Done")) {
                     done = true;
                 } else {
                 String[] job = line.split(",");

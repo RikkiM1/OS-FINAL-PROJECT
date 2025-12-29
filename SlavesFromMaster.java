@@ -20,7 +20,7 @@ public class SlavesFromMaster extends Thread {
         while(!done.getBool()) {
             try {
                 String line = br.readLine();
-                if(line.equals("Done")) {
+                if(line.equals("Done!")) {
                     done.setBool(true);
                     System.out.println("All jobs recieved");
                 } else {
