@@ -58,3 +58,9 @@ Dec 10 progress report:
 * Rikki M:
 * Elisheva G:
 * As a group:
+
+January 1 Progress Report:
+* Rebecca G: Started renaming files for clarity
+* Rikki M: added debug print statements
+* Elisheva G:
+* As a group: Worked together to start debugging and figured out why certain errors were thrown. 

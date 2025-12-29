@@ -1,14 +1,10 @@
 import java.net.*;
 import java.io.*;
-import java.util.concurrent.CompletableFuture;
 
 public class Master {
 public static void main(String[] args) throws IOException {
 
     args = new String[] { "61222" };
-    //implement:
-    //ThreadfromClient://forEach
-    //ThreadToClient://forEach
 
     int portNumber = Integer.parseInt(args[0]);
 
@@ -49,7 +45,7 @@ public static void main(String[] args) throws IOException {
             System.out.println("Assigned Client ID: " + clientID);
             clientID++;
         
-            clientSlaveConnections[i] = new MastersToSlave(clientIn, jobsSlaveA, jobsSlaveB, slaveAOut, slaveBOut);
+            clientSlaveConnections[i] = new JobsToSlave(clientIn, jobsSlaveA, jobsSlaveB, slaveAOut, slaveBOut);
         }
         for (Thread t : clientSlaveConnections) {
             t.start();
