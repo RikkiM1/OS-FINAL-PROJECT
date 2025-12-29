@@ -22,6 +22,7 @@ public class SlavesFromMaster extends Thread {
                 String line = br.readLine();
                 if(line.equals("Done")) {
                     done.setBool(true);
+                    System.out.println("All jobs recieved");
                 } else {
                     job = line.split(",");
                     jobs.addJob(job);

@@ -42,6 +42,7 @@ public class SlaveB {
                     out.println(job[0] + " is complete");
                 }
             }
+            System.out.println("All jobs complete.");
             fromMaster.join();
         }
         //rikki mann- I added the catch statement 11/12

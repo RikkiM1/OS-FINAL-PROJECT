@@ -19,6 +19,7 @@ public class MasterFromSlave {
             String line = in.readLine();
             while (!done) {
                 if (line.equals("Done!")) {
+                    System.out.println("Slave reported that all it's jobs are done.");
                     done = true;
                 } else {
 

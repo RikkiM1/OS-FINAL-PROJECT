@@ -39,6 +39,7 @@ public class SlaveA {
                     out.println(job[0] + " is complete");
                 }
             }
+            System.out.println("All jobs complete.");
             fromMaster.join();
         }
 
