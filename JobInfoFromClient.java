@@ -2,12 +2,12 @@ import java.io.PrintWriter;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class ClientsToMaster extends Thread {
+public class JobInfoFromClient extends Thread {
     private PrintWriter out;
     private String clientID;
     private BufferedReader kybd;
 
-    public ClientsToMaster(PrintWriter out, String clientID, BufferedReader kybd) {
+    public JobInfoFromClient(PrintWriter out, String clientID, BufferedReader kybd) {
         this.out = out;
         this.clientID = clientID;
         this.kybd = kybd;

@@ -27,7 +27,7 @@ public class Client2 {
             // do we need to put this in a while loop? like while(in.readline!=null)?
                 String ClientID = in.readLine();//who is sending in the ID? I switched it from in to stdIn
             // and now no error but not sure if supposed to do that
-                Thread toMaster = new ClientsToMaster(out, ClientID, stdIn);
+                Thread toMaster = new JobInfoFromClient(out, ClientID, stdIn);
                 toMaster.start();
                 boolean jobsDone = false;
                 while (!jobsDone) {

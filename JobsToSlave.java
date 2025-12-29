@@ -2,14 +2,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class MastersToSlave extends Thread {
+public class JobsToSlave extends Thread {
     BufferedReader in;
     JobList a;
     JobList b;
     PrintWriter slavea;
     PrintWriter slaveb;
 
-    public MastersToSlave ( BufferedReader in, JobList a, JobList b, PrintWriter slavea, PrintWriter slaveb) {
+    public JobsToSlave(BufferedReader in, JobList a, JobList b, PrintWriter slavea, PrintWriter slaveb) {
         this.in = in;
         this.a = a;
         this.b = b;
@@ -18,7 +18,7 @@ public class MastersToSlave extends Thread {
     }
 
     public void run() {
-        System.out.println("MastersToSlave thread started.");
+        System.out.println("JobsToSlave thread started.");
         try {
              in.readLine();
         } catch (IOException e) {
