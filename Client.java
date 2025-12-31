@@ -29,6 +29,12 @@ public class Client {
             // and now no error but not sure if supposed to do that
                 Thread toMaster = new JobInfoFromClient(out, ClientID, stdIn);
                 toMaster.start();
+                boolean jobsDone = false;
+                while (!jobsDone) {
+                    String line = in.readLine();
+                    if (line.equals("Done")) jobsDone = true;
+                    else System.out.println(line);
+                }
                 toMaster.join(); // Wait for thread to finish before try-with-resources closes the streams
 
 
