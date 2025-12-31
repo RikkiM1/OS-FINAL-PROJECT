@@ -57,6 +57,7 @@ public static void main(String[] args) throws IOException {
                 e.printStackTrace();
             }
         }
+        System.out.println("About to send done");
         slaveAOut.println("Done!");
         slaveBOut.println("Done!");
 //

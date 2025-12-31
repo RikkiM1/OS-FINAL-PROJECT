@@ -32,6 +32,7 @@ public class Client {
                 boolean jobsDone = false;
                 while (!jobsDone) {
                     String line = in.readLine();
+                    System.out.println(line);//for debugging. this is getting null
                     if (line.equals("Done")) jobsDone = true;
                     else System.out.println(line);
                 }

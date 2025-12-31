@@ -25,7 +25,8 @@ public class JobInfoFromClient extends Thread {
                 String jobID = clientID + i;
                 out.println(jobID + "," + jobType);
             }
-            out.println("Done");
+            System.out.println("finished entering job info");
+            out.println("Done");//this tells JobsToSlave it's done sending
         } catch (IOException e) {
             e.printStackTrace();
         }

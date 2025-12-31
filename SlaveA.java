@@ -24,6 +24,7 @@ public class SlaveA {
             Thread fromMaster = new SlavesFromMaster(jobs, in, done);
 
             fromMaster.start();
+            fromMaster.join();
             while (!done.getBool() || jobs.getJobCount() > 0) {
                 if (jobs.getJobCount() > 0) {
                     String[] job = jobs.getFirstJob();
@@ -39,8 +40,8 @@ public class SlaveA {
                     out.println(job[0] + " is complete");
                 }
             }
-            System.out.println("All jobs complete.");
-            fromMaster.join();
+            System.out.println("In Slave A: All jobs complete");
+
         }
 
         //rikki mann- I added the catch statement 11/12
