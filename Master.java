@@ -68,7 +68,7 @@ public static void main(String[] args) throws IOException {
     }
 }
 /**implement: Main will deal with getting more clients ??
- Thread from slave 2 times: (to Client?)
+ Thread from slave 2 times: (to Client1?)
  ThreadfromSlaveA:pass the inA object and outclient object when receive done message
  from slave send to client
  ThreadfromSlaveB: pass the inB object and outclient object when receive done

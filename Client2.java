@@ -21,8 +21,8 @@ public class Client2 {
                         new BufferedReader(
                                 new InputStreamReader(System.in))
         ) {
-            System.out.println("Client would like to request jobs.");
-            out.println("Client would like to request jobs.");//is this going to master? Also isn't the client the one
+            System.out.println("Client2 would like to request jobs.");
+            out.println("Client2 would like to request jobs.");//is this going to master? Also isn't the client the one
                 // that sends jobs?
             // do we need to put this in a while loop? like while(in.readline!=null)?
                 String ClientID = in.readLine();//who is sending in the ID? I switched it from in to stdIn

@@ -27,12 +27,12 @@ ___
         - PrintWriter
         - JobList
         - BooleanWrapper
-  - [ ] Client Threads
+  - [ ] Client1 Threads
     - [x] To Master
     - [ ] From Master (Maybe do in main?)
   - [ ] Master Threads
-    - [ ] From Slave/To Client
-    - [ ] From Client/To Slave
+    - [ ] From Slave/To Client1
+    - [ ] From Client1/To Slave
 - [x] Set up the logic to dynamically set the job id counter in client
 - [ ] Check the current thread syntax make sure it is correct 
 
