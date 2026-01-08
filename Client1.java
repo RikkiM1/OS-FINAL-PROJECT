@@ -22,11 +22,8 @@ public class Client1 {
                                 new InputStreamReader(System.in))
         ) {
             System.out.println("Client1 would like to request jobs.");
-            out.println("Client1 would like to request jobs.");//is this going to master? Also isn't the client the one
-                // that sends jobs?
-            // do we need to put this in a while loop? like while(in.readline!=null)?
-                String ClientID = in.readLine();//who is sending in the ID? I switched it from in to stdIn
-            // and now no error but not sure if supposed to do that
+            out.println("Client1 would like to request jobs.");
+                String ClientID = in.readLine();
                 Thread toMaster = new JobInfoFromClient(out, ClientID, stdIn);
                 toMaster.start();
                 boolean jobsDone = false;
@@ -38,12 +35,8 @@ public class Client1 {
                 }
                 toMaster.join(); // Wait for thread to finish before try-with-resources closes the streams
 
-
-
             //Client1 is supposed to inform user that job is complete. Add code that tells client when its done then
             // add print statement: system.out.println("Job is complete.");
-
-
 
 
         } catch (UnknownHostException e) {
