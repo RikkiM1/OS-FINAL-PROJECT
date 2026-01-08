@@ -31,6 +31,8 @@ public static void main(String[] args) throws IOException {
         //- Master needs two Joblist objects for each slave:
         JobList jobsSlaveA = new JobList("A");
         JobList jobsSlaveB = new JobList("B");
+        //MasterFromSlave for each slave (BufferedReader, JobList)
+        //Startt those threads
         //add jobs to joblist? is it only in mastertoslave?
 
         //this loop gets jobs from the client and then sends them to the slaves
@@ -43,10 +45,12 @@ public static void main(String[] args) throws IOException {
                     new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             clientOut.println(clientID);
             System.out.println("Assigned Client ID: " + clientID);
+            //M<asterFromThread .addclient()
             clientID++;
         
             clientSlaveConnections[i] = new JobsToSlave(clientIn, jobsSlaveA, jobsSlaveB, slaveAOut, slaveBOut);
         }
+        //send message to slave that all client connections were initiated
         for (Thread t : clientSlaveConnections) {
             t.start();
         }
