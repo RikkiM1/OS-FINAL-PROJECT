@@ -9,7 +9,6 @@ public class Client2 {
 
         String hostName = args[0];
         int portNumber = Integer.parseInt(args[1]);
-        int ctr =0;//Gets incremented when you pass it ToMaster thread in client.
         try (
                 Socket clientSocket = new Socket(hostName, portNumber);
                 PrintWriter out =
