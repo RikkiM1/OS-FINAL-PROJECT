@@ -33,7 +33,6 @@ public class Client2 {
                 while (!jobsDone) {
                     String line = in.readLine();
                     if (line.equals("Done")) jobsDone = true;
-                    else System.out.println(line);
                 }
                 toMaster.join(); // Wait for thread to finish before try-with-resources closes the streams
 
