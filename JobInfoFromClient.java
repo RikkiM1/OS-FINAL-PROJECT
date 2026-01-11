@@ -18,13 +18,14 @@ public class JobInfoFromClient extends Thread {
     @Override
     public void run() {
         try {
-            for (int i = 0; i < numJobs; i++) {
+            for (int i = 0; i < numJobs; i++) {//for each job- ask which type it is
                 System.out.println("Choose: 'A' or 'B' - ");
                 char jobType = kybd.readLine().toUpperCase().charAt(0);
                 String jobID = clientID + i;
                 out.println(jobID + "," + jobType);
+                System.out.println("Sent job " + jobID + " to master.");
             }
-            System.out.println("Finished entering job info.");
+
             out.println("Done");//this tells JobsToSlave it's done sending
         } catch (IOException e) {
             e.printStackTrace();

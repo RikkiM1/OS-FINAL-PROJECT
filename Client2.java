@@ -4,7 +4,7 @@ import java.net.*;
 public class Client2 {
     public static void main(String[] args) throws IOException {
 
-        args = new String[] {"127.0.0.1", "61222"};//only have this port number here
+        args = new String[] {"127.0.0.1", "61222"};
 
 
         String hostName = args[0];
@@ -21,7 +21,7 @@ public class Client2 {
                                 new InputStreamReader(System.in))
         ) {
             System.out.println("Client2 would like to request jobs.");
-            out.println("Client2 would like to request jobs.");//is this going to master? Also isn't the client the one
+            out.println("Client2 would like to request jobs.");
                             String ClientID = in.readLine();
                 System.out.println("How many jobs? \nenter 0 to end");
                 int jobs = Integer.parseInt(stdIn.readLine());
@@ -34,8 +34,6 @@ public class Client2 {
                 toMaster.join(); // Wait for thread to finish before try-with-resources closes the streams
                 System.out.println("All jobs are complete.");
 
-            //Client is supposed to inform user that job is complete. Add code that tells client when its done then
-            // add print statement: system.out.println("Job is complete.");
 
         } catch (UnknownHostException e) {
             System.err.println("Don't know about host " + hostName);

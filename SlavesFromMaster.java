@@ -26,7 +26,7 @@ public class SlavesFromMaster extends Thread {
                 } else {
                     job = line.split(",");
                     jobs.addJob(job);
-                    System.out.println("Job added to slave: " + line);
+                    System.out.println("Job received from master. Job added to slave: " + line);
                 }
             } catch (IOException e) {
                 e.printStackTrace();

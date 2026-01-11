@@ -35,10 +35,9 @@ public static void main(String[] args) throws IOException {
         MasterFromSlave masterFromSlaveA = new MasterFromSlave(slaveAIn, jobsSlaveA);
         MasterFromSlave masterFromSlaveB = new MasterFromSlave(slaveBIn, jobsSlaveB);
 
-        //Startt those threads
+        //Start those threads
         masterFromSlaveA.start();
         masterFromSlaveB.start();
-
 
         //this loop gets jobs from the client and then sends them to the slaves
         char clientID ='A';
@@ -57,7 +56,7 @@ public static void main(String[] args) throws IOException {
         
             clientSlaveConnections[i] = new JobsToSlave(clientIn, jobsSlaveA, jobsSlaveB, slaveAOut, slaveBOut);
         }
-        //send message to slave that all client connections were initiated
+
         for (Thread t : clientSlaveConnections) {
             t.start();
         }
@@ -83,10 +82,4 @@ public static void main(String[] args) throws IOException {
         System.out.println(e.getMessage());
     }
 }
-/**implement: Main will deal with getting more clients ??
- Thread from slave 2 times: (to Client1?)
- ThreadfromSlaveA:pass the inA object and outclient object when receive done message
- from slave send to client
- ThreadfromSlaveB: pass the inB object and outclient object when receive done
- message from slave send to client**/
 }

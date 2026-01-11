@@ -34,8 +34,6 @@ public class Client1 {
                 }
                 toMaster.join(); // Wait for thread to finish before try-with-resources closes the streams
                 System.out.println("All jobs are complete.");
-            //Client1 is supposed to inform user that job is complete. Add code that tells client when its done then
-            // add print statement: system.out.println("Job is complete.");
 
 
         } catch (UnknownHostException e) {

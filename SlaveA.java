@@ -3,7 +3,7 @@ import java.io.*;
 
 import static java.lang.Thread.sleep;
 
-//Each slave needs one jobList for each thread
+
 public class SlaveA {
     public static void main(String[] args)  throws IOException {
 
@@ -23,7 +23,7 @@ public class SlaveA {
             JobList jobs = new JobList("A");
             Thread fromMaster = new SlavesFromMaster(jobs, in, done);
             fromMaster.start();         
-            while (!done.getBool() || jobs.getJobCount() > 0) {
+            while (!done.getBool() || jobs.getJobCount() > 0) {//prints status of jobs
                 if (jobs.getJobCount() > 0) {
                     String[] job = jobs.getFirstJob();
                     if (job[1].equals("A")) {

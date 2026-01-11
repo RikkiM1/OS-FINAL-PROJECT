@@ -43,7 +43,7 @@ public class SlaveB {
             }
             System.out.println("Slave B: all jobs complete.");
             out.println("Done!");
-            fromMaster.join();// I moved this from below the while loop now it's running BH
+            fromMaster.join();
 
         }
         // rikki mann- I added the catch statement 11/12

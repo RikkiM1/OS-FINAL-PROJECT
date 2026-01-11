@@ -34,14 +34,14 @@ public class JobsToSlave extends Thread {
                 String[] job = line.split(",");
                 int aTime = a.timeNeeded();
                 int bTime = b.timeNeeded();
-                if (job[1].equals("A")) {
+                if (job[1].equals("A")) {//load-balancing logic:
                     if (aTime <= bTime + 8) {
                         a.addJob(job);
-                        System.out.println("Slave A received job from master");
+                        System.out.println("Master received a job from client and assigned it to Slave A.");
                         slavea.println(line);
                     } else {
                         b.addJob(job);
-                        System.out.println("Slave B received job from master");
+                        System.out.println("Master received a job from client and assigned it to Slave B.");
                         slaveb.println(line);
                     }
                 } else {//this sends jobs to non-optimal slave if that makes the most sense
