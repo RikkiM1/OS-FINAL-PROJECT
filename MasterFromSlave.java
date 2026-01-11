@@ -7,10 +7,12 @@ public class MasterFromSlave extends Thread{
     ArrayList<PrintWriter> clients = new ArrayList<PrintWriter>();
     BufferedReader in;
     JobList jobList;
+    Object lock;
 
-    public MasterFromSlave(BufferedReader in, JobList jobList) {
+    public MasterFromSlave(BufferedReader in, JobList jobList, Object lock) {
         this.in = in;
         this.jobList = jobList;
+        this.lock = lock;
     }
 
     public void addClient(PrintWriter client) {
@@ -30,7 +32,9 @@ public class MasterFromSlave extends Thread{
                     if (line.matches(".* is complete .*")) {
                         String[] temp = line.split(" ");
                         if (jobList.getFirstJob()[0].equals(temp[1])) {
-                            jobList.removeFirstJob();
+                            synchronized (lock) {
+                                jobList.removeFirstJob();
+                            }
                         }
                         System.out.println("Slave reported that job " + line);
                         clients.get(line.charAt(0) - 'A').println(line);

@@ -6,11 +6,13 @@ public class SlavesFromMaster extends Thread {
     private JobList jobs;
     private BufferedReader br;
     private BooleanWrapper done;
+    private Object jobListLock;
 
-    public SlavesFromMaster(JobList jobs, BufferedReader br,  BooleanWrapper done) {
+    public SlavesFromMaster(JobList jobs, BufferedReader br,  BooleanWrapper done,  Object jobListLock) {
         this.jobs = jobs;
         this.br = br;
         this.done = done;
+        this.jobListLock = jobListLock;
     }
 
     @Override
@@ -25,7 +27,9 @@ public class SlavesFromMaster extends Thread {
                     System.out.println("All jobs recieved");
                 } else {
                     job = line.split(",");
-                    jobs.addJob(job);
+                    synchronized (jobListLock) {
+                        jobs.addJob(job);
+                    }
                     System.out.println("Job received from master. Job added to slave: " + line);
                 }
             } catch (IOException e) {

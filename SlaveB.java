@@ -10,21 +10,23 @@ import static java.lang.Thread.sleep;
 public class SlaveB {
     public static void main(String[] args) throws IOException {
 
-        args = new String[] { "6897" };
+        args = new String[]{"6897"};
         int portNumber = Integer.parseInt(args[0]);
 
         try (ServerSocket slaveBSocket = new ServerSocket(portNumber); // Server Socket: to accept call from master
-                Socket masterToB = slaveBSocket.accept();
-                PrintWriter out = new PrintWriter(masterToB.getOutputStream(), true);
-                BufferedReader in = new BufferedReader(new InputStreamReader(masterToB.getInputStream()));) {
+             Socket masterToB = slaveBSocket.accept();
+             PrintWriter out = new PrintWriter(masterToB.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(masterToB.getInputStream()));) {
             System.out.println("Slave B is ready to receive jobs from Master.");
             BooleanWrapper done = new BooleanWrapper(false);
             JobList jobs = new JobList("B");
-
-            Thread fromMaster = new SlavesFromMaster(jobs, in, done);
+            Object jobListLock = new Object();
+            Thread fromMaster = new SlavesFromMaster(jobs, in, done, jobListLock);
             fromMaster.start();
             while (!done.getBool() || jobs.getJobCount() > 0) {
                 if (jobs.getJobCount() > 0) {
+                    /* This line doesn't need to be synchronized because the first job
+                    isn't affected by adding a job later in the list */
                     String[] job = jobs.getFirstJob();
                     if (job[1].equals("B")) {
                         System.out.println("Sleeping for 2 seconds for type B job.");
@@ -33,7 +35,9 @@ public class SlaveB {
                         System.out.println("Sleeping for 10 seconds for type A job.");
                         sleep(10000);
                     }
-                    jobs.removeFirstJob();
+                    synchronized (jobListLock) {
+                        jobs.removeFirstJob();
+                    }
                     System.out.println(job[0] + " is complete in Slave B");
                     out.println(job[0] + " is complete by Slave B");
                 } else {

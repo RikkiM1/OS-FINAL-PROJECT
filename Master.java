@@ -30,10 +30,12 @@ public static void main(String[] args) throws IOException {
 
         //- Master needs two Joblist objects for each slave:
         JobList jobsSlaveA = new JobList("A");
+        Object jobsSlaveALock = new Object();
         JobList jobsSlaveB = new JobList("B");
+        Object jobsSlaveBLock  = new Object();
         //MasterFromSlave for each slave (BufferedReader, JobList)
-        MasterFromSlave masterFromSlaveA = new MasterFromSlave(slaveAIn, jobsSlaveA);
-        MasterFromSlave masterFromSlaveB = new MasterFromSlave(slaveBIn, jobsSlaveB);
+        MasterFromSlave masterFromSlaveA = new MasterFromSlave(slaveAIn, jobsSlaveA, jobsSlaveALock);
+        MasterFromSlave masterFromSlaveB = new MasterFromSlave(slaveBIn, jobsSlaveB, jobsSlaveBLock);
 
         //Start those threads
         masterFromSlaveA.start();
@@ -54,7 +56,7 @@ public static void main(String[] args) throws IOException {
             masterFromSlaveB.addClient(clientOut);
             clientID++;
         
-            clientSlaveConnections[i] = new JobsToSlave(clientIn, jobsSlaveA, jobsSlaveB, slaveAOut, slaveBOut);
+            clientSlaveConnections[i] = new JobsToSlave(clientIn, jobsSlaveA, jobsSlaveALock, jobsSlaveB, jobsSlaveBLock, slaveAOut, slaveBOut);
         }
 
         for (Thread t : clientSlaveConnections) {

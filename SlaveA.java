@@ -21,10 +21,13 @@ public class SlaveA {
             System.out.println("Slave A is ready to receive jobs from Master.");
             BooleanWrapper done = new BooleanWrapper(false);
             JobList jobs = new JobList("A");
-            Thread fromMaster = new SlavesFromMaster(jobs, in, done);
+            Object jobListLock = new Object();
+            Thread fromMaster = new SlavesFromMaster(jobs, in, done, jobListLock);
             fromMaster.start();         
             while (!done.getBool() || jobs.getJobCount() > 0) {//prints status of jobs
                 if (jobs.getJobCount() > 0) {
+                    /* This line doesn't need to be synchronized because the first job
+                    isn't affected by adding a job later in the list */
                     String[] job = jobs.getFirstJob();
                     if (job[1].equals("A")) {
                         System.out.println("Sleeping for 2 seconds for type A job.");
@@ -33,7 +36,9 @@ public class SlaveA {
                         System.out.println("Sleeping for 10 seconds for type B job.");
                         sleep(10000);
                     }
-                    jobs.removeFirstJob();
+                    synchronized (jobListLock) {
+                        jobs.removeFirstJob();
+                    }
                     System.out.println(job[0] + " is complete in Slave A");
                     out.println(job[0] + " is complete by Slave A");
                 } else {
