@@ -23,20 +23,17 @@ public class Client2 {
         ) {
             System.out.println("Client2 would like to request jobs.");
             out.println("Client2 would like to request jobs.");//is this going to master? Also isn't the client the one
-                // that sends jobs?
-            // do we need to put this in a while loop? like while(in.readline!=null)?
-                String ClientID = in.readLine();//who is sending in the ID? I switched it from in to stdIn
-            // and now no error but not sure if supposed to do that
-                Thread toMaster = new JobInfoFromClient(out, ClientID, stdIn);
+                            String ClientID = in.readLine();
+                System.out.println("How many jobs? \nenter 0 to end");
+                int jobs = Integer.parseInt(stdIn.readLine());
+                Thread toMaster = new JobInfoFromClient(out, ClientID, stdIn, jobs);
                 toMaster.start();
-                boolean jobsDone = false;
-                while (!jobsDone) {
+                for(int i = 0; i < jobs; i++) {
                     String line = in.readLine();
-                    if (line.equals("Done")) jobsDone = true;
+                    System.out.println(line);
                 }
                 toMaster.join(); // Wait for thread to finish before try-with-resources closes the streams
-
-
+                System.out.println("All jobs are complete.");
 
             //Client is supposed to inform user that job is complete. Add code that tells client when its done then
             // add print statement: system.out.println("Job is complete.");

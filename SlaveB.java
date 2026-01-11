@@ -10,16 +10,13 @@ import static java.lang.Thread.sleep;
 public class SlaveB {
     public static void main(String[] args) throws IOException {
 
-        args = new String[]{"6897"};
+        args = new String[] { "6897" };
         int portNumber = Integer.parseInt(args[0]);
 
-        try (ServerSocket slaveBSocket = new ServerSocket(portNumber);//Server Socket: to accept call from master
-             Socket masterToB = slaveBSocket.accept();
-             PrintWriter out =
-                     new PrintWriter(masterToB.getOutputStream(), true);
-             BufferedReader in =
-                     new BufferedReader(new InputStreamReader(masterToB.getInputStream()));
-        ) {
+        try (ServerSocket slaveBSocket = new ServerSocket(portNumber); // Server Socket: to accept call from master
+                Socket masterToB = slaveBSocket.accept();
+                PrintWriter out = new PrintWriter(masterToB.getOutputStream(), true);
+                BufferedReader in = new BufferedReader(new InputStreamReader(masterToB.getInputStream()));) {
             System.out.println("Slave B is ready to receive jobs from Master.");
             BooleanWrapper done = new BooleanWrapper(false);
             JobList jobs = new JobList("B");
@@ -38,15 +35,18 @@ public class SlaveB {
                     }
                     jobs.removeFirstJob();
                     System.out.println(job[0] + " is complete in Slave B");
-                    out.println(job[0] + " is complete");
+                    out.println(job[0] + " is complete by Slave B");
+                } else {
+                    // Small delay to prevent busy-waiting when no jobs available
+                    sleep(100);
                 }
             }
             System.out.println("Slave B: all jobs complete.");
+            out.println("Done!");
             fromMaster.join();// I moved this from below the while loop now it's running BH
 
-
         }
-        //rikki mann- I added the catch statement 11/12
+        // rikki mann- I added the catch statement 11/12
         catch (IOException e) {
             System.out.println(
                     "Exception caught when trying to listen on port " + portNumber + " or listening for a connection");

@@ -68,10 +68,15 @@ public static void main(String[] args) throws IOException {
                 e.printStackTrace();
             }
         }
-
         slaveAOut.println("Done!");
         slaveBOut.println("Done!");
-//
+        try {
+            masterFromSlaveA.join();
+            masterFromSlaveB.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     } catch (IOException e) {
         System.out.println(
                 "Exception caught when trying to listen on port " + portNumber + " or listening for a connection");

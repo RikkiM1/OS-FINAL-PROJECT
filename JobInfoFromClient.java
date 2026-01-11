@@ -6,25 +6,25 @@ public class JobInfoFromClient extends Thread {
     private PrintWriter out;
     private String clientID;
     private BufferedReader kybd;
+    private int numJobs;
 
-    public JobInfoFromClient(PrintWriter out, String clientID, BufferedReader kybd) {
+    public JobInfoFromClient(PrintWriter out, String clientID, BufferedReader kybd, int numJobs) {
         this.out = out;
         this.clientID = clientID;
         this.kybd = kybd;
+        this.numJobs = numJobs;
     }
 
     @Override
     public void run() {
         try {
-            System.out.println("How many jobs? \nenter 0 to end");
-            int jobs = Integer.parseInt(kybd.readLine());
-            for (int i = 0; i < jobs; i++) {
+            for (int i = 0; i < numJobs; i++) {
                 System.out.println("Choose: 'A' or 'B' - ");
                 char jobType = kybd.readLine().toUpperCase().charAt(0);
                 String jobID = clientID + i;
                 out.println(jobID + "," + jobType);
             }
-            System.out.println("finished entering job info");
+            System.out.println("Finished entering job info.");
             out.println("Done");//this tells JobsToSlave it's done sending
         } catch (IOException e) {
             e.printStackTrace();

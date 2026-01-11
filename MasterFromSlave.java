@@ -27,8 +27,7 @@ public class MasterFromSlave extends Thread{
                     System.out.println("Slave reported that all it's jobs are done.");
                     done = true;
                 } else {
-
-                    if (line.matches(".* is complete")) {
+                    if (line.matches(".* is complete .*")) {
                         String[] temp = line.split(" ");
                         if (jobList.getFirstJob()[0].equals(temp[1])) {
                             jobList.removeFirstJob();

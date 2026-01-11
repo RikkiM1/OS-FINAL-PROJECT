@@ -24,16 +24,16 @@ public class Client1 {
             System.out.println("Client1 would like to request jobs.");
             out.println("Client1 would like to request jobs.");
                 String ClientID = in.readLine();
-                Thread toMaster = new JobInfoFromClient(out, ClientID, stdIn);
+                System.out.println("How many jobs? \nenter 0 to end");
+                int jobs = Integer.parseInt(stdIn.readLine());
+                Thread toMaster = new JobInfoFromClient(out, ClientID, stdIn, jobs);
                 toMaster.start();
-                boolean jobsDone = false;
-                while (!jobsDone) {
+                for(int i = 0; i < jobs; i++) {
                     String line = in.readLine();
                     System.out.println(line);
-                    if (line.equals("Done")) jobsDone = true;
                 }
                 toMaster.join(); // Wait for thread to finish before try-with-resources closes the streams
-
+                System.out.println("All jobs are complete.");
             //Client1 is supposed to inform user that job is complete. Add code that tells client when its done then
             // add print statement: system.out.println("Job is complete.");
 

@@ -35,10 +35,14 @@ public class SlaveA {
                     }
                     jobs.removeFirstJob();
                     System.out.println(job[0] + " is complete in Slave A");
-                    out.println(job[0] + " is complete");
+                    out.println(job[0] + " is complete by Slave A");
+                } else {
+                    // Small delay to prevent busy-waiting when no jobs available
+                    sleep(100);
                 }
             }
             fromMaster.join();
+            out.println("Done!");
             System.out.println("In Slave A: All jobs complete");
 
         }
