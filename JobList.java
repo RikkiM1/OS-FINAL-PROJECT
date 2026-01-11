@@ -16,14 +16,14 @@ public class JobList {
         this.jobs.add(new String[]{jobID, jobType});
     }
     public String[] getFirstJob() {
-        return this.jobs.getFirst();
+        return jobs.getFirst();
     }
     public String[] removeFirstJob() {
-        return this.jobs.removeFirst();
+        return jobs.removeFirst();
     }
 
     public int getJobCount() {
-        return this.jobs.size();
+        return jobs.size();
     }
     public int timeNeeded() {
         int time = 0;

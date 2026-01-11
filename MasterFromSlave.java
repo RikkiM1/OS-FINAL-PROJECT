@@ -1,18 +1,23 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
-public class MasterFromSlave {
-    PrintWriter client1;
-    PrintWriter client2;
+public class MasterFromSlave extends Thread{
+    ArrayList<PrintWriter> clients = new ArrayList<PrintWriter>();
     BufferedReader in;
     JobList jobList;
 
-    public MasterFromSlave(PrintWriter client1, PrintWriter client2, BufferedReader in, JobList jobList) {
-        this.client1 = client1;
-        this.client2 = client2;
+    public MasterFromSlave(BufferedReader in, JobList jobList) {
         this.in = in;
         this.jobList = jobList;
+    }
+
+    public void addClient(PrintWriter client) {
+        clients.add(client);
+    }
+
+    public void run() {
 
         try {
             boolean done = false;
@@ -29,15 +34,9 @@ public class MasterFromSlave {
                             jobList.removeFirstJob();
                         }
                         System.out.println("Slave reported that job " + line);
-                        switch(line.charAt(0)) {
-                            case 'A':
-                                    client1.println(line);
-                            break;
-                            case 'B':
-                                    client2.println(line);
-                            break;
-                        }
+                        clients.get(line.charAt(0) - 'A').println(line);
                     }
+                    line = in.readLine();
                 }
             }
         } catch (IOException e) {
@@ -45,3 +44,4 @@ public class MasterFromSlave {
         }
     }
 }
+

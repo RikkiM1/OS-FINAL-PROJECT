@@ -32,8 +32,8 @@ public static void main(String[] args) throws IOException {
         JobList jobsSlaveA = new JobList("A");
         JobList jobsSlaveB = new JobList("B");
         //MasterFromSlave for each slave (BufferedReader, JobList)
-        Thread masterFromSlaveA = new MasterFromSlave(SlaveAIn, jobsSlaveA);
-        Thread masterFromSlaveB = new MasterFromSlave(SlaveBIn, jobsSlaveB);
+        MasterFromSlave masterFromSlaveA = new MasterFromSlave(slaveAIn, jobsSlaveA);
+        MasterFromSlave masterFromSlaveB = new MasterFromSlave(slaveBIn, jobsSlaveB);
 
         //Startt those threads
         masterFromSlaveA.start();
@@ -51,8 +51,8 @@ public static void main(String[] args) throws IOException {
             clientOut.println(clientID);
             System.out.println("Assigned Client ID: " + clientID);
             //M<asterFromThread .addclient()
-            masterFromSlaveA.addClient(ClientOut);
-            masterFromSlaveB.addClient(ClientOut);
+            masterFromSlaveA.addClient(clientOut);
+            masterFromSlaveB.addClient(clientOut);
             clientID++;
         
             clientSlaveConnections[i] = new JobsToSlave(clientIn, jobsSlaveA, jobsSlaveB, slaveAOut, slaveBOut);

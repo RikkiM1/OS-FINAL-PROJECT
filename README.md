@@ -17,24 +17,26 @@ also it'll be reusable for all slaves.
 ### ✅ Write what should be worked on next on here.
 ___
 - [x] Set up Slave B the class and in main
-- [ ] Figure out loop for master to connect to multiple clients 
+- [x] Figure out loop for master to connect to multiple clients 
 - [x] Create JobList Object in all classes (not client)
-- [ ] Create thread classes 🧵
-  - [ ] Slave Threads
+- [x] Create thread classes 🧵
+  - [x] Slave Threads
     - [x] From Master
-    - [ ] To Master (currently set up in main of slave A should be moved)
+    - [x] To Master (currently set up in main of slave A should be moved)
       - Fields: 
         - PrintWriter
         - JobList
         - BooleanWrapper
-  - [ ] Client1 Threads
+  - [x] Client1 Threads
     - [x] To Master
-    - [ ] From Master (Maybe do in main?)
-  - [ ] Master Threads
-    - [ ] From Slave/To Client1
-    - [ ] From Client1/To Slave
+    - [x] From Master (Maybe do in main?)
+  - [x] Master Threads
+    - [x] From Slave/To Client1
+    - [x] From Client1/To Slave
 - [x] Set up the logic to dynamically set the job id counter in client
-- [ ] Check the current thread syntax make sure it is correct 
+- [x] Check the current thread syntax make sure it is correct 
+- [ ] Debug
+- [ ] Fix loop in both Client Classes
 
 ### 🗓️ Write weekly progress reports here.
 ___

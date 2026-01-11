@@ -22,9 +22,7 @@ public class SlaveA {
             BooleanWrapper done = new BooleanWrapper(false);
             JobList jobs = new JobList("A");
             Thread fromMaster = new SlavesFromMaster(jobs, in, done);
-
-            fromMaster.start();
-            fromMaster.join();
+            fromMaster.start();         
             while (!done.getBool() || jobs.getJobCount() > 0) {
                 if (jobs.getJobCount() > 0) {
                     String[] job = jobs.getFirstJob();
@@ -40,6 +38,7 @@ public class SlaveA {
                     out.println(job[0] + " is complete");
                 }
             }
+            fromMaster.join();
             System.out.println("In Slave A: All jobs complete");
 
         }

@@ -26,7 +26,6 @@ public class SlaveB {
 
             Thread fromMaster = new SlavesFromMaster(jobs, in, done);
             fromMaster.start();
-            fromMaster.join();// I moved this from below the while loop now it's running BH
             while (!done.getBool() || jobs.getJobCount() > 0) {
                 if (jobs.getJobCount() > 0) {
                     String[] job = jobs.getFirstJob();
@@ -43,6 +42,8 @@ public class SlaveB {
                 }
             }
             System.out.println("Slave B: all jobs complete.");
+            fromMaster.join();// I moved this from below the while loop now it's running BH
+
 
         }
         //rikki mann- I added the catch statement 11/12

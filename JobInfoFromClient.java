@@ -20,8 +20,7 @@ public class JobInfoFromClient extends Thread {
             int jobs = Integer.parseInt(kybd.readLine());
             for (int i = 0; i < jobs; i++) {
                 System.out.println("Choose: 'A' or 'B' - ");
-                String jobType = kybd.readLine();
-                jobType = jobType.toUpperCase();
+                char jobType = kybd.readLine().toUpperCase().charAt(0);
                 String jobID = clientID + i;
                 out.println(jobID + "," + jobType);
             }
