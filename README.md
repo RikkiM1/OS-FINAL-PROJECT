@@ -12,6 +12,7 @@ ___
 * Elisheva Goldfarb: I think the job list class will work better than ArrayListA, 
 also it'll be reusable for all slaves.
 
+*//Rikki Mann T00521492, Elisheva Goldfarb T00522464, Rebecca Genack T00524626 
 * Created the BooleanWrapper and thread S's M->S, C's C->M
 
 ### ✅ Write what should be worked on next on here.

@@ -1,3 +1,4 @@
+//Rikki Mann T00521492, Elisheva Goldfarb T00522464, Rebecca Genack T00524626
 public class BooleanWrapper {
     private boolean bool;
     public BooleanWrapper(boolean bool) {

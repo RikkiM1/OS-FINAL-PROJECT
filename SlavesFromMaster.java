@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+//Rikki Mann T00521492, Elisheva Goldfarb T00522464, Rebecca Genack T00524626
 import java.io.IOException;
 
 public class SlavesFromMaster extends Thread {
